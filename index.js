@@ -67,15 +67,22 @@ function game() {
         console.log(playRound(playerSelection,computerSelection));
     }
 
-    if (checkWinner(playerSelection,computerSelection) == 'Player wins!') 
+    if (checkWinner(playerSelection,computerSelection) == 'Player wins!'){
        
-        return scorePlayer++;
-        
-        else if (checkWinner(playerSelection,computerSelection) == 'Computer wins!')
-      
-            return console.log(scoreComputer++);
-            else (checkWinner(playerSelection,computerSelection)== 'Tie!')
-                return scoreComputer++;
-}  
+         scorePlayer++}
+            
+            else if (checkWinner(playerSelection,computerSelection) == 'Computer wins!') {
+            scoreComputer++
+         }
+                console.log('Game Over')
+    if (scorePlayer > scoreComputer) {
+        console.log('Player Wins!') 
+    } else if (scoreComputer > scorePlayer) {
+        console.log('Computer Wins!')
+    } else {
+        console.log("It's a tie!");
+    };
+};
 
-game();
+
+game()
