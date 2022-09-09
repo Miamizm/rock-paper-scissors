@@ -1,4 +1,4 @@
-const options = ['Rock','Paper','Scissors'];
+const options = ['rock','paper','scissors'];
 function getComputerChoice() {
     const choice = options[Math.floor(Math.random() * options.length)] 
     return choice;
@@ -11,8 +11,8 @@ function checkWinner(playerSelection,computerSelection) {
     if (playerSelection == computerSelection) {
         return 'Tie!'; }
          else if (
-        (playerSelection == 'Rock' && computerSelection == 'Scissors' || playerSelection == 'Scissors' 
-        && computerSelection == 'Paper' || playerSelection == 'Paper' && computerSelection == 'Rock' ) 
+        (playerSelection == 'rock' && computerSelection == 'scissors' || playerSelection == 'scissors' 
+        && computerSelection == 'paper' || playerSelection == 'paper' && computerSelection == 'rock' ) 
          ) {
             return 'Player wins!';
          } else {
@@ -35,8 +35,47 @@ function playRound(playerSelection,computerSelection) {
 const playerSelection = 'Scissors';  // enter your own choice with a string 
 const computerSelection = getComputerChoice();
 
-console.log(playRound(playerSelection,computerSelection));
-console.log(playRound(playerSelection,computerSelection));
-console.log(playRound(playerSelection,computerSelection));
-console.log(playRound(playerSelection,computerSelection));
-console.log(playRound(playerSelection,computerSelection));
+
+function getPlayerChoice() {
+    let validatedInput = false; 
+        while (validatedInput == false) {
+            const choice = prompt("Rock, Paper, or Scissors?");
+            if (choice == null) {
+                continue;
+            }
+            const choiceInLower = choice.toLowerCase();
+                if (options.includes(choiceInLower)){
+                    validatedInput = true;
+                    return choiceInLower;
+                }
+
+                }
+        }
+
+
+
+
+
+function game() {
+    let scorePlayer = 0;
+    let scoreComputer = 0;
+
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
+
+        console.log(playRound(playerSelection,computerSelection));
+    }
+
+    if (checkWinner(playerSelection,computerSelection) == 'Player wins!') 
+       
+        return scorePlayer++;
+        
+        else if (checkWinner(playerSelection,computerSelection) == 'Computer wins!')
+      
+            return console.log(scoreComputer++);
+            else (checkWinner(playerSelection,computerSelection)== 'Tie!')
+                return scoreComputer++;
+}  
+
+game();
