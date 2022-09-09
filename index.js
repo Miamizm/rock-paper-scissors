@@ -32,15 +32,15 @@ function playRound(playerSelection,computerSelection) {
     }
 };
 
-const playerSelection = 'Scissors';  // enter your own choice with a string 
-const computerSelection = getComputerChoice();
+const playerSelection = getPlayerChoice();  
+const computerSelection = getComputerChoice()
 
-
+// declares function 
 function getPlayerChoice() {
-    let validatedInput = false; 
-        while (validatedInput == false) {
-            const choice = prompt("Rock, Paper, or Scissors?");
-            if (choice == null) {
+    let validatedInput = false; // sets variable to false
+        while (validatedInput == false) { // sets the condition 
+            const choice = prompt("Rock, Paper, or Scissors?"); // declares constant 'choice' that'll prompt a user to input their reply.
+            if (choice == null) { // if users choice is not valid, it will prompt again until a valid choice is input.
                 continue;
             }
             const choiceInLower = choice.toLowerCase();
@@ -73,7 +73,7 @@ function game() {
             
             else if (checkWinner(playerSelection,computerSelection) == 'Computer wins!') {
             scoreComputer++
-         }
+         };
                 console.log('Game Over')
     if (scorePlayer > scoreComputer) {
         console.log('Player Wins!') 
@@ -85,4 +85,4 @@ function game() {
 };
 
 
-game()
+game();
